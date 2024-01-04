@@ -19,13 +19,13 @@ struct ContentView: View {
     @StateObject var modelStore = ModelStore()
     
     /// モデルID : モデルIDは学習によりモデルを作成することで取得できます
-    let modelId: Int = 603
+    let modelId: Int = 612
     
     /// 学習 (モデル作成)
     private func train() {
-        // 600Hz x 40秒 = 24000のダミーデータ
-        let base = getRandomEEGData(count: 24000)
-        let target = getRandomEEGData(count: 24000)
+        // 600Hz x 80秒 = 48000のダミーデータ
+        let base = getRandomEEGData(count: 48000)
+        let target = getRandomEEGData(count: 48000)
         let data = EEGTrainingData(base: base,
                                    target: target)
         modelStore.train(userId: Constants.userId, 
