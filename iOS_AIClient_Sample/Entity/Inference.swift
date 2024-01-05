@@ -26,13 +26,6 @@ struct InferenceResponse: Codable {
     var meanPrediction: Float
     var sessionScore: Float
     
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        predictions = try container.decode([Float].self, forKey: .predictions)
-        meanPrediction = try container.decode(Float.self, forKey: .meanPrediction)
-        sessionScore = try container.decode(Float.self, forKey: .sessionScore)
-    }
-    
     enum CodingKeys: String, CodingKey {
         case predictions
         case meanPrediction = "mean_prediction"

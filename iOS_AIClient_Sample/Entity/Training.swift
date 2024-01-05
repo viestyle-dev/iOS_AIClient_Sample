@@ -30,15 +30,6 @@ struct TrainingResponse: Codable {
     let selectedModel: Int
     let rawDataCollectionId: Int
     
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        modeLevel = try container.decode(Double.self, forKey: .modeLevel)
-        decoderLevel = try container.decode(Double.self, forKey: .decoderLevel)
-        trainingLevel = try container.decode(Int.self, forKey: .trainingLevel)
-        selectedModel = try container.decode(Int.self, forKey: .selectedModel)
-        rawDataCollectionId = try container.decode(Int.self, forKey: .rawDataCollectionId)
-    }
-
     enum CodingKeys: String, CodingKey {
         case modeLevel = "mode_level"
         case decoderLevel = "decoder_level"
